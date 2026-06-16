@@ -1,4 +1,4 @@
-# Desigualdade Educacional Municipal no Brasil (2006–2022)
+# Desigualdade Educacional Municipal no Brasil (2010–2022)
 
 Análise exploratória, modelo preditivo e mapas geográficos interativos sobre indicadores educacionais municipais brasileiros, com foco na Região Metropolitana de Curitiba.
 
@@ -14,7 +14,7 @@ Este projeto consulta dados públicos do INEP, disponibilizados pela [Base dos D
 
 ## Pipeline
 
-1. **Extração** — consulta SQL direta no BigQuery via [`basedosdados`](https://pypi.org/project/basedosdados/), trazendo indicadores educacionais de todos os municípios brasileiros (2006–2022)
+1. **Extração** — consulta SQL direta no BigQuery via [`basedosdados`](https://pypi.org/project/basedosdados/), trazendo indicadores educacionais de todos os municípios brasileiros (2010–2022)
 2. **Enriquecimento** — junção com dados de UF e mapeamento manual de região (Norte, Nordeste, Sul, Sudeste, Centro-Oeste)
 3. **Limpeza** — tratamento de valores nulos, concentrados principalmente no Ensino Médio rural (municípios pequenos frequentemente não oferecem essa etapa)
 4. **EDA** — evolução temporal, comparação entre regiões, comparação urbano/rural, correlação entre alunos por turma e aprovação
@@ -23,12 +23,11 @@ Este projeto consulta dados públicos do INEP, disponibilizados pela [Base dos D
 
 ## Principais achados
 
-> Preencha esta seção com os números reais depois de rodar o notebook (Run All). Sugestão de estrutura:
-
-- A taxa de aprovação no Ensino Médio variou de **X%** a **Y%** entre 2006 e 2022, com tendência de—
-- A região **[nome]** apresentou a maior taxa de abandono no Ensino Médio, enquanto **[nome]** apresentou a menor
-- Municípios rurais apresentam taxa de aprovação no EM em média **X pontos percentuais** [maior/menor] que municípios urbanos
-- O modelo preditivo (Random Forest) atingiu **MAE de X.X pontos percentuais** e **R² de 0.XX**, com **[variável]** sendo o fator de maior peso na previsão
+- A taxa de aprovação no Ensino Médio passou de **81,4%** em 2010 para **88,1%** em 2022, com um salto atípico em 2021 (**91,7%**) — provavelmente reflexo de critérios de avaliação adotados durante a pandemia. Os dados de 2020 não constam na base.
+- A região **Sudeste** apresentou a maior taxa de aprovação no Ensino Médio (**90,8%**) e a menor taxa de abandono (**3,8%**); a região **Norte** teve o cenário mais desafiador, com **84,9%** de aprovação e **8,2%** de abandono.
+- Municípios com mais alunos por turma (`atu_em`) tendem a ter menor aprovação: a correlação entre as duas variáveis foi de **-0,24** no Ensino Médio e **-0,17** no Fundamental — turmas mais cheias, em média, associam-se a pior desempenho.
+- O modelo preditivo (Random Forest) atingiu **MAE de 6,41 pontos percentuais** e **R² de 0,377** — explica parte relevante da variação, mas indica que fatores não capturados pelas variáveis disponíveis (qualidade de ensino, contexto socioeconômico do município, etc.) também têm peso considerável.
+- A variável de maior peso na previsão foi **horas-aula diária no Ensino Médio (`had_em`)**, seguida por **alunos por turma (`atu_em`)** — juntas, essas duas variáveis estruturais superam até a região geográfica como preditoras da taxa de aprovação.
 
 ## Resultados visuais
 
