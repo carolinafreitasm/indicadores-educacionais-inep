@@ -1,0 +1,11 @@
+basedosdados
+pandas
+numpy
+matplotlib
+seaborn
+scikit-learn
+geopandas
+shapely
+plotly
+mapclassify
+pillow
