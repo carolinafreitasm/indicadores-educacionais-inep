@@ -2,7 +2,7 @@
 
 Análise exploratória, modelo preditivo e mapas geográficos interativos sobre indicadores educacionais municipais brasileiros, com foco na Região Metropolitana de Curitiba.
 
-🗺️ **[Ver mapa interativo (clique aqui)](https://seu-usuario.github.io/indicadores-educacionais-rmc/mapa_interativo.html)**
+🗺️ **[Ver mapa interativo (clique aqui)](https://carolinafreitasm.github.io/indicadores-educacionais-inep/mapa_rmc_aprovacao_ef_em_interativo.html)**
 
 ![Evolução da aprovação na RM Curitiba](images/evolucao_aprovacao_rmc.gif)
 
@@ -43,8 +43,8 @@ Python, pandas, scikit-learn, matplotlib, seaborn, geopandas, Plotly, BigQuery (
 ## Como reproduzir
 
 ```bash
-git clone https://github.com/seu-usuario/indicadores-educacionais-rmc.git
-cd indicadores-educacionais-rmc
+git clone https://github.com/carolinafreitasm/indicadores-educacionais-inep.git
+cd indicadores-educacionais-inep
 pip install -r requirements.txt
 ```
 
